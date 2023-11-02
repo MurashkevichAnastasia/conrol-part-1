@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="ru" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>О проекте</title>
+    <link rel="stylesheet" href="stylesheets/style.css">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico" />
+    <link rel="icon" type="image/png" href="images/favicon.png" />
+    <script src="javascripts/jquery-3.6.1.js" charset="utf-8"></script>
+  </head>
+  <body>
+    <div class="all_about">
+      <!-- shapka -->
+      <div class="menubar">
+        <a href="index.html"><img src="images/logo.svg" alt=""></a>
+        <a href="wikimedium.html">Wiki</a>
+        <a id="color-green" href="about.html">О проекте</a>
+        <a href="page.html">Цикада 3301</a>
+      </div>
+      <!-- block1 -->
+      <!-- <section>
+        <div>
+          <h2>Наглядный пример,<br>чтобы учиться веб-вёрстке.</h2>
+          <p>Разработан для изучения веб-вёрстки, языка гипертекстовой разметки HTML и каскадных таблиц стилей CSS</p>
+        </div>
+        <div>
+          <img src="images/about1.png" alt="">
+        </div>
+      </section> -->
+      <!-- block2 -->
+      <!-- <section>
+        <div>
+          <img src="images/about2.png" alt="">
+        </div>
+        <div>
+          <h2>Наглядный пример,<br>чтобы учиться веб-вёрстке.</h2>
+          <p>Разработан для изучения веб-вёрстки, языка гипертекстовой разметки HTML и каскадных таблиц стилей CSS</p>
+        </div>
+      </section> -->
+      <!-- block3 -->
+      <!-- <section>
+        <div>
+          <h2>Наглядный пример,<br>чтобы учиться веб-вёрстке.</h2>
+          <p>Разработан для изучения веб-вёрстки, языка гипертекстовой разметки HTML и каскадных таблиц стилей CSS</p>
+        </div>
+        <div>
+          <img src="images/about1.png" alt="">
+        </div>
+      </section> -->
+      <!-- block4 -->
+      <section class="bottom_block">
+        <h2>Возможность самостоятельного и курированого обучения</h2>
+        <p></p>
+        <a href="https://github.com/IrinaApolonnik/-Narkomfin-">Исходный код на GitHub</a>
+        <a class="btn" href="https://design.hse.ru/dir/programming">Курс в Школе Дизайна</a>
+      </section>
+    </div>
+    <!-- ТАБЛИЦА -->
+    <!-- 10- таблица -->
+    <h1 class="h-tittle">Таблица с добавлением полей</h1>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+          font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
+        }
+      table {
+          width: 100%;
+          border-collapse: collapse;
+          background: url('https://www.google.com/url?sa=i&url=https%3A%2F%2Fscientificrussia.ru%2Farticles%2Fkotiki-i-my&psig=AOvVaw3Lbk5DLvPwMlv1HxorP5NG&ust=1698940999093000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCMDsx8eWo4IDFQAAAAAdAAAAABAF');
+        }
+      th, td, form > * {
+        border: 1px solid #999;
+        font-size: 14px;
+        padding: 6px 8px;
+        text-align: left;
+        font-weight: 400;
+        height: 32px;
+        width: 20%;
+      }
+      th {
+        color: #990;
+      }
+      th:hover {
+          background: #eee;
+          cursor: pointer;
+      }
+
+      td > span {
+              border-radius: 4px;
+              padding: 3px 8px;
+          }
+      th:first-child, td:first-child, form > *:first-child {
+              border-left: none;
+              width: 20%;
+          }
+          th:last-child, td:last-child, form > *:last-child {
+              border-right: 1px solid transparent;
+              width: auto;
+          }
+          th:nth-child(2), td:nth-child(2),  form > *:nth-child(2) {
+              /* width: calc(30% - 32px); */
+              font-weight: 500;
+          }
+          td > span {
+              padding: 3px 8px;
+              border-radius: 4px;
+          }
+      .redType {
+        background-color: #ffe2dd;   
+      }
+      .greenType {
+        background-color: #dbeddb;
+      }
+      form {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        border-collapse: collapse;
+      }
+  
+      form > * {
+        border-top: none;
+        border-left: 1px solid transparent;
+      }
+  
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+      $(document).ready(function() {
+        $('form button').click(function() {
+          let week = $('[name="week"]').val();
+          let theme = $('[name="theme"]').val();
+          let date = $('[name="date"]').val();
+          let desc = $('[name="desc"]').val();
+          let type = $('[name="type"]').val();
+
+        let newRow = '<tr><td contenteditable="true">'+week+'</td><td contenteditable="true">'+theme+'</td><td contenteditable="true">'+date+'</td><td><span class="redType">'+desc+'</span></td><td><span class="greenType">'+type+'</span></td><td></td></tr>'
+  
+        $('table').append(newRow);
+        $('form input').val('');
+  
+        let redType = 'Ревью';
+        let goldType = 'Лекция';
+        let goldType2 = 'Арт-практика';
+  
+        $('td').filter(function () {
+             return $(this).text() == redType;
+        }).children().css("background-color", "#ffe2dd");
+  
+        $('td').filter(function () {
+             return $(this).text() == goldType;
+        }).children().css("background-color", "#fdedc8");
+  
+        $('td').filter(function () {
+             return $(this).text() == goldType2;
+        }).children().css("background-color", "#fdedc8");
+        })
+      })
+    </script>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <td>Неделя</td>
+          <td>Название</td>
+          <td>Двта</td>
+          <td>Предмет</td>
+          <td>Тип</td>
+          <td>+</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>01</td>
+          <td><a href="https://ru.hexlet.io/courses/css-content/lessons/forms/theory_unit">Верстаем форму</a></td>
+          <td>4 апреля 2023</td>
+          <td><span class="redType">Технологии</span></td>
+          <td><span class="greenType">Воркшоп</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>01</td>
+          <td><a href="https://ru.hexlet.io/courses/css-content/lessons/forms/theory_unit">Верстаем форму</a></td>
+          <td>4 апреля 2023</td>
+          <td><span class="redType">Технологии</span></td>
+          <td><span class="greenType">Воркшоп</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>01</td>
+          <td><a href="https://ru.hexlet.io/courses/css-content/lessons/forms/theory_unit">Верстаем форму</a></td>
+          <td>4 апреля 2023</td>
+          <td><span class="redType">Технологии</span></td>
+          <td><span class="greenType">Воркшоп</span></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td><span class="redType"></span></td>
+          <td><span class="greenType"></span></td>
+        </tr>
+      </tbody>
+    </table>
+    <form>
+      <!-- <input type="text" name="week" value="">
+      <input type="text" name="theme" value="">
+      <input type="text" name="date" value=""> -->
+      <select name="desc" id="">
+        <option value="Технология">Технология</option>
+        <option value="Арт-практика">Арт-практика</option>
+      </select>
+      <select name="type" id="">
+        <option value="Воркшоп">Воркшоп</option>
+        <option value="Лекция">Лекция</option>
+        <option value="Ревью">Ревью</option>
+      </select>
+      <button name="button" type="button">+</button>
+    </form>
+    
+    <!-- 10- таблица с картинкой внутри  -->
+    <h1 class="h-tittle">Таблица картинками</h1>
+    <table  background-image="./images/cat2.jpeg" class="urlo" width="100%"  height="400">
+      <tr><td>
+      <tr><td>
+      <tr><td>
+      <tr><td>
+      <tr><td>
+      </td></tr>
+      </table>   
+          <!-- 10 - картинка внутри ячейки -->   
+      <table class="burlo" width="100%"  height="100">
+      <tr background="./images/cat.jpeg"><td>
+      </td></tr>
+      </table>
+
+      <!-- 11- Фрагмент с работающе формой для отправки информации на удаленный сервер контактных данных посетителя (фамилия, имя, мобильный телефон, электронка, дата отправки сообщения); -->
+      <h1 class="h-tittle">Form</h1>
+      <form id="mars-once" action="/apply/" method="POST">
+        <label class="mars-once-name">
+          Ваше имя:
+          <input type="text" name="name" id="name" placeholder="Мурашкевич Анастасия" required autofocus>
+        </label>
+      
+        <label>
+          Почта:
+          <input type="email" name="email" id="email" placeholder="murashkevich.com" required>
+        </label>
+      
+        <label>
+          Возраст:
+          <input type="number" name="age" placeholder="20" required>
+        </label>
+
+        <label>
+          Телефон:
+          <input type="number" name="age" placeholder="+79016548965" required>
+        </label>
+      
+        <label>
+          Профессия:
+          <select name="specialization" required>
+            <option value="engineer" selected>дизайнер</option>
+            <option value="scientist">программист</option>
+            <option value="psychologist">юрист</option>
+            <option value="other">другое</option>
+          </select>
+        </label>
+      
+        <label>
+          Дата отправки сообщения:
+          <input type="date" id="messageDate" name="16:40" required>
+        </label>
+      
+        <button class="send-form" type="submit">Отправить заявку</button>
+      </form>
+      
+      <!-- 12-  Фрагмент с работающе формой для отправки на удаленный сервер оригинальных данных (заказы из магазина, отзывы на что-либо, или другое относящееся к тематике сайта, названия переменных (атрибут - name) должны соответствовать решаемой задаче, форма должна обязательно содержить следующие типы: text, number, radio, checkbox, date, password, hiddden и возможность отправлять на удаленный сервер значения по-умолчанию; -->
+      <h1 class="h-tittle">Отправка контактных данных</h1>
+      <form class="form-twelve" id="contactForm">
+          <label for="lastName">Фамилия:</label>
+          <input type="text" id="lastName" name="lastName" placeholder="Murashkevich" required><br>
+          
+          <label for="firstName">Имя:</label>
+          <input type="text" id="firstName" name="firstName" placeholder="Anastasia" required><br>
+          
+          <label for="mobilePhone">Мобильный телефон:</label>
+          <input type="tel" id="mobilePhone" name="mobilePhone" placeholder="+79016576745" required><br>
+          
+          <label for="email">Email:</label>
+          <input type="email" id="email" name="email" placeholder="murashkevich@gmail.com" required><br>
+          
+          <label for="messageDate">Дата отправки сообщения:</label>
+          <input type="date" id="messageDate" name="messageDate" required><br>
+          
+          <button class="send-forma" type="submit">Отправить заявку</button>
+      </form>
+      <script>
+        //форма к п.11
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            // Отправить данные на удаленный сервер, например, с использованием Fetch API
+            fetch('ваш_удаленный_сервер_url', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Данные успешно отправлены:', data);
+            })
+            .catch(error => {
+                console.error('Ошибка отправки данных:', error);
+            });
+        });
+
+        // отправка данных к п12
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const formData = new FormData(this);
+            // Отправить данные на удаленный сервер, например, с использованием Fetch API
+            fetch('ваш_удаленный_сервер_url', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Данные успешно отправлены:', data);
+            })
+            .catch(error => {
+                console.error('Ошибка отправки данных:', error);
+            });
+        });
+      </script>
+  </body>
+</html>
